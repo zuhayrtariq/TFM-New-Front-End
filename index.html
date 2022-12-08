@@ -11,382 +11,417 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="tfmstyle.css" />
+    <script src="https://js.stripe.com/v3/"></script>
   </head>
   <body>
-    <section id="CampaignType" class="container-fluid">
-      <div class="text-center">
-        <h2 class="text-center section-heading">Campaign Type</h2>
-      </div>
-
-      <h4>Choose Your Campaign Type</h4>
-
-      <div class="row justify-content-around">
-        <div class="col-xl-2 col-xxl-2 col-lg-4 col-6 text-center">
-          <img
-            class="campaign-type-img"
-            src="LeadGeneration.png"
-            alt="Lead Generation Img"
-          />
-          <br />
-          <input
-            type="radio"
-            class="radio-btn"
-            value="500"
-            name="campaign-type"
-            id="leadGeneration500"
-            required
-            onclick="selectedCampaignType(); "
-          />
-        </div>
-        <div class="col-xl-2 col-xxl-2 col-lg-4 col-6 text-center">
-          <img
-            class="campaign-type-img"
-            src="EventPromotion.png"
-            alt="Event Promotion Img"
-          />
-          <br />
-          <input
-            type="radio"
-            name="campaign-type"
-            value="400"
-            id="eventPromotion400"
-            onclick="selectedCampaignType()"
-          />
-        </div>
-        <div class="col-xl-2 col-xxl-2 col-lg-4 col-6 text-center">
-          <img
-            class="campaign-type-img"
-            src="SocialCompetition.png"
-            alt="Social Competition Img"
-          />
-          <br />
-          <input
-            type="radio"
-            name="campaign-type"
-            value="500"
-            id="socialCompetition500"
-            onclick="selectedCampaignType()"
-          />
-        </div>
-        <div class="col-xl-2 col-xxl-2 col-lg-4 col-6 text-center">
-          <img
-            class="campaign-type-img"
-            src="SiteTraffic.png"
-            alt="Site Traffic"
-          />
-          <br />
-          <input
-            type="radio"
-            name="campaign-type"
-            value="400"
-            id="siteTraffic400"
-            onclick="selectedCampaignType()"
-          />
-        </div>
-        <div class="col-xl-2 col-xxl-2 col-lg-4 col-6 text-center">
-          <img
-            class="campaign-type-img"
-            src="SocialFollowingGrowth.png"
-            alt="Social Growth Img"
-          />
-          <br />
-          <input
-            type="radio"
-            name="campaign-type"
-            value="400"
-            id="socialGrowth400"
-            onclick="selectedCampaignType()"
-          />
-        </div>
-      </div>
-    </section>
-
-    <section id="CampaignDetails">
-      <div class="text-center">
-        <h2 class="text-center section-heading">Campaign Details</h2>
-      </div>
-
-      <h3 class="mx-4">Please Enter Campaign Details</h3>
-      <br />
-      <div class="row justify-content-around mx-3">
-        <div class="mb-4">
-          <label for="businessName" class="form-label">Business Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="businessName"
-            name="business-name"
-            required
-            onchange="checkCampaignDetails();"
-          />
-        </div>
-        <div class="mb-4">
-          <label for="eventDetails" class="form-label"
-            >Event/Offer Details</label
-          >
-          <input
-            type="text"
-            class="form-control"
-            required
-            id="eventDetails"
-            name="event-details"
-            onchange="checkCampaignDetails();"
-          />
-        </div>
-        <div class="mb-4">
-          <label for="keyMessage" class="form-label">Key Messages</label>
-          <input
-            type="text"
-            class="form-control"
-            required
-            id="keyMessage"
-            name="key-message"
-            onchange="checkCampaignDetails();"
-          />
-        </div>
-        <div class="mb-4 col-6">
-          <label for="eventDate" class="form-label">Campaign Start Date</label>
-          <input
-            type="date"
-            class="form-control"
-            required
-            id="eventStart"
-            name="start-date"
-            onchange="checkCampaignDetails();"
-          />
-        </div>
-        <div class="mb-4 col-6">
-          <label for="eventDate" class="form-label">Campaign End Date</label>
-          <input
-            type="date"
-            class="form-control"
-            required
-            id="eventEnd"
-            name="end-date"
-            onchange="checkCampaignDetails();"
-          />
-        </div>
-      </div>
-    </section>
-    <section id="CampaignExtras">
-      <div class="text-center">
-        <h2 class="text-center section-heading">Campaign Extras</h2>
-      </div>
-      <h3 class="mx-4">Choose Any Campaign Extras</h3>
-      <br />
-      <div class="row justify-content-around">
-        <div class="col-xl-3 col-lg-3 col-6 text-center">
-          <img
-            class="campaign-type-img"
-            src="LeadPage.png"
-            alt="Lead Generation Img"
-          />
-          <br />
-          <input
-            type="checkbox"
-            class="radio-btn"
-            value="150"
-            name="campaign-extras[]"
-            id="leadPage150"
-            onclick="totalBudget2(this)"
-          />
-        </div>
-        <div class="col-xl-3 col-lg-3 col-6 text-center">
-          <img
-            class="campaign-type-img"
-            src="ISA.png"
-            alt="Lead Generation Img"
-          />
-          <br />
-          <input
-            type="checkbox"
-            name="campaign-extras[]"
-            id="instagramStoryAnimation300"
-            value="300"
-            onclick="totalBudget2(this)"
-          />
-        </div>
-        <div class="col-xl-3 col-lg-3 col-6 text-center">
-          <img
-            class="campaign-type-img"
-            src="CarouselCreative.png"
-            alt="Lead Generation Img"
-          />
-          <br />
-          <input
-            type="checkbox"
-            name="campaign-extras[]"
-            id="carouselCreative300"
-            value="300"
-            onclick="totalBudget2(this)"
-          />
-        </div>
-        <div class="col-xl-3 col-lg-3 col-6 text-center">
-          <img
-            class="campaign-type-img"
-            src="LeadAutomation.png"
-            alt="Lead Generation Img"
-          />
-          <br />
-          <input
-            type="checkbox"
-            name="campaign-extras[]"
-            id="leadAutomation180"
-            value="180"
-            onclick="totalBudget2(this)"
-          />
-        </div>
-      </div>
-    </section>
-
-    <section id="ClientDetails">
-      <div class="text-center">
-        <h2 class="text-center section-heading">Client Details</h2>
-      </div>
-      <h3 class="mx-4">Provide Your Contact & Invoicing Details:</h3>
-      <br />
-      <div class="row mx-3 justify-content-around">
-        <div class="mb-4">
-          <label for="clientName" class="form-label">Name</label>
-          <input
-            type="text"
-            class="form-control"
-            required
-            id="clientName"
-            name="client-name"
-            placeholder="Enter Your Name"
-            onchange="checkClientDetails();"
-          />
-        </div>
-        <div class="my-4">
-          <label for="clientEmail">Email address</label>
-          <input
-            type="email"
-            required
-            class="form-control"
-            id="clientEmail"
-            aria-describedby="emailHelp"
-            placeholder="Enter email"
-            name="client-email"
-            onchange="checkClientDetails();"
-          />
-          <small id="emailHelp" class="form-text text-muted"
-            >We'll never share your email with anyone else.</small
-          >
-        </div>
-        <div class="mb-4">
-          <label for="clientNumber" class="form-label">Phone Number</label>
-          <input
-            type="number"
-            class="form-control"
-            required
-            id="clientNumber"
-            name="client-number"
-            onchange="checkClientDetails();"
-          />
-        </div>
-      </div>
-    </section>
-
-    <section id="MediaBudget">
-      <div class="text-center">
-        <h2 class="text-center section-heading">Media Budget</h2>
-      </div>
-      <h3 class="mx-4">Select Your Budget For Media Spend</h3>
-      <br />
-      <div class="row justify-content-around">
-        <div class="col-4 text-center">
-          <img
-            class="campaign-extras-img"
-            src="500.png"
-            alt="Lead Generation Img"
-          />
-          <br />
-          <input
-            type="radio"
-            value="500"
-            class="radio-btn"
-            name="budget"
-            id="budget500"
-            onchange="checkCustomRadio(); totalBudget3(this); "
-            onclick="selectedBudget(true)"
-            required
-          />
-        </div>
-        <div class="col-4 text-center">
-          <img
-            class="campaign-extras-img"
-            src="1000.png"
-            alt="Lead Generation Img"
-          />
-          <br />
-          <input
-            type="radio"
-            value="1000"
-            name="budget"
-            id="budget1000"
-            onchange="checkCustomRadio(); totalBudget3(this); "
-            onclick="selectedBudget(true)"
-          />
-        </div>
-        <div class="col-4 text-center">
-          <img
-            class="campaign-extras-img"
-            src="1500.png"
-            alt="Lead Generation Img"
-          />
-          <br />
-          <input
-            type="radio"
-            value="1500"
-            name="budget"
-            id="budget1500"
-            onchange="checkCustomRadio(); totalBudget3(this);"
-            onclick="selectedBudget(true)"
-          />
-        </div>
-
-        <div class="text-center col-12 custom-budget">
-          <label for="customAmountInput" class="form-label"
-            >Enter Custom Budget($)
-          </label>
-          <br />
-          <input type="number" name="cbudget" id="customAmountInput" min="500"
-          onchange=" selectedCustomBudget()" //totalBudget3(this);
-          onclick="selectedBudget(false);selectedCustomBudget();" />
-          <br />
-          <br />
-          <input
-            type="radio"
-            name="budget"
-            id="customAmountRadio"
-            onchange="checkCustomRadio();"
-            onclick="selectedBudget(false)"
-          />
-        </div>
-      </div>
-    </section>
-    <div
-      class="container progress-bar-section d-flex flex-column justify-content-center align-items-center"
-    >
-      <div id="progressBar">
-        <div class="progress-container">
-          <div class="progress-bar" id="progress"></div>
-          <div class="circle z-active">1</div>
-          <div class="circle">2</div>
-          <div class="circle">3</div>
-          <div class="circle">4</div>
-          <div class="circle">5</div>
-
-          <div class="circle">6</div>
-        </div>
+    <iframe name="votar" style="display: none"></iframe>
+    <form action="POST" id="CampaignForm">
+      <section id="CampaignType" class="container-fluid">
         <div class="text-center">
-          <button class="btn" id="prev" disabled>Prev</button>
+          <h2 class="text-center section-heading">Campaign Type</h2>
+        </div>
 
-          <button class="btn" type="submit" id="next" disabled>Next</button>
+        <h4>Choose Your Campaign Type</h4>
+
+        <div class="row justify-content-around">
+          <div class="col-xl-2 col-xxl-2 col-lg-4 col-6 text-center">
+            <img
+              class="campaign-type-img"
+              src="LeadGeneration.png"
+              alt="Lead Generation Img"
+            />
+            <br />
+            <input
+              type="radio"
+              class="radio-btn"
+              value="500"
+              name="campaign-type"
+              id="leadGeneration500"
+              required
+              onclick="selectedCampaignType(); "
+            />
+          </div>
+          <div class="col-xl-2 col-xxl-2 col-lg-4 col-6 text-center">
+            <img
+              class="campaign-type-img"
+              src="EventPromotion.png"
+              alt="Event Promotion Img"
+            />
+            <br />
+            <input
+              type="radio"
+              name="campaign-type"
+              value="400"
+              id="eventPromotion400"
+              onclick="selectedCampaignType()"
+            />
+          </div>
+          <div class="col-xl-2 col-xxl-2 col-lg-4 col-6 text-center">
+            <img
+              class="campaign-type-img"
+              src="SocialCompetition.png"
+              alt="Social Competition Img"
+            />
+            <br />
+            <input
+              type="radio"
+              name="campaign-type"
+              value="500"
+              id="socialCompetition500"
+              onclick="selectedCampaignType()"
+            />
+          </div>
+          <div class="col-xl-2 col-xxl-2 col-lg-4 col-6 text-center">
+            <img
+              class="campaign-type-img"
+              src="SiteTraffic.png"
+              alt="Site Traffic"
+            />
+            <br />
+            <input
+              type="radio"
+              name="campaign-type"
+              value="400"
+              id="siteTraffic400"
+              onclick="selectedCampaignType()"
+            />
+          </div>
+          <div class="col-xl-2 col-xxl-2 col-lg-4 col-6 text-center">
+            <img
+              class="campaign-type-img"
+              src="SocialFollowingGrowth.png"
+              alt="Social Growth Img"
+            />
+            <br />
+            <input
+              type="radio"
+              name="campaign-type"
+              value="400"
+              id="socialGrowth400"
+              onclick="selectedCampaignType()"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="CampaignDetails">
+        <div class="text-center">
+          <h2 class="text-center section-heading">Campaign Details</h2>
+        </div>
+
+        <h3 class="mx-4">Please Enter Campaign Details</h3>
+        <br />
+        <div class="row justify-content-around mx-3">
+          <div class="mb-4">
+            <label for="businessName" class="form-label">Business Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="businessName"
+              name="business-name"
+              required
+              onchange="checkCampaignDetails();"
+            />
+          </div>
+          <div class="mb-4">
+            <label for="eventDetails" class="form-label"
+              >Event/Offer Details</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              required
+              id="eventDetails"
+              name="event-details"
+              onchange="checkCampaignDetails();"
+            />
+          </div>
+          <div class="mb-4">
+            <label for="keyMessage" class="form-label">Key Messages</label>
+            <input
+              type="text"
+              class="form-control"
+              required
+              id="keyMessage"
+              name="key-message"
+              onchange="checkCampaignDetails();"
+            />
+          </div>
+          <div class="mb-4 col-6">
+            <label for="eventDate" class="form-label"
+              >Campaign Start Date</label
+            >
+            <input
+              type="date"
+              class="form-control"
+              required
+              id="eventStart"
+              name="start-date"
+              onchange="checkCampaignDetails();"
+            />
+          </div>
+          <div class="mb-4 col-6">
+            <label for="eventDate" class="form-label">Campaign End Date</label>
+            <input
+              type="date"
+              class="form-control"
+              required
+              id="eventEnd"
+              name="end-date"
+              onchange="checkCampaignDetails();"
+            />
+          </div>
+          <br />
+          <div class="mb-3">
+            <label for="formFile" class="form-label"
+              >Upload Your Logo, Images and Videos</label
+            >
+            <input
+              class="form-control"
+              name="logo"
+              type="file"
+              id="formFile"
+              accept=".zip"
+            />
+            <small id="emailHelp" class="form-text text-muted"
+              >Please upload all the files in a zip folder</small
+            >
+          </div>
+        </div>
+      </section>
+      <section id="CampaignExtras">
+        <div class="text-center">
+          <h2 class="text-center section-heading">Campaign Extras</h2>
+        </div>
+        <h3 class="mx-4">Choose Any Campaign Extras</h3>
+        <br />
+        <div class="row justify-content-around">
+          <div class="col-xl-3 col-lg-3 col-6 text-center">
+            <img
+              class="campaign-type-img"
+              src="LeadPage.png"
+              alt="Lead Generation Img"
+            />
+            <br />
+            <input
+              type="checkbox"
+              class="radio-btn"
+              value="150"
+              name="campaign-extras[]"
+              id="leadPage150"
+            />
+          </div>
+          <div class="col-xl-3 col-lg-3 col-6 text-center">
+            <img
+              class="campaign-type-img"
+              src="ISA.png"
+              alt="Lead Generation Img"
+            />
+            <br />
+            <input
+              type="checkbox"
+              name="campaign-extras[]"
+              id="instagramStoryAnimation300"
+              value="300"
+            />
+          </div>
+          <div class="col-xl-3 col-lg-3 col-6 text-center">
+            <img
+              class="campaign-type-img"
+              src="CarouselCreative.png"
+              alt="Lead Generation Img"
+            />
+            <br />
+            <input
+              type="checkbox"
+              name="campaign-extras[]"
+              id="carouselCreative300"
+              value="300"
+            />
+          </div>
+          <div class="col-xl-3 col-lg-3 col-6 text-center">
+            <img
+              class="campaign-type-img"
+              src="LeadAutomation.png"
+              alt="Lead Generation Img"
+            />
+            <br />
+            <input
+              type="checkbox"
+              name="campaign-extras[]"
+              id="leadAutomation180"
+              value="180"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="ClientDetails">
+        <div class="text-center">
+          <h2 class="text-center section-heading">Client Details</h2>
+        </div>
+        <h3 class="mx-4">Provide Your Contact & Invoicing Details:</h3>
+        <br />
+        <div class="row mx-3 justify-content-around">
+          <div class="mb-4">
+            <label for="clientName" class="form-label">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              required
+              id="clientName"
+              name="client-name"
+              placeholder="Enter Your Name"
+              onchange="checkClientDetails();"
+            />
+          </div>
+          <div class="my-4">
+            <label for="clientEmail">Email address</label>
+            <input
+              type="email"
+              required
+              class="form-control"
+              id="clientEmail"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+              name="client-email"
+              onchange="checkClientDetails();"
+            />
+            <small id="emailHelp" class="form-text text-muted"
+              >We'll never share your email with anyone else.</small
+            >
+          </div>
+          <div class="mb-4">
+            <label for="clientNumber" class="form-label">Phone Number</label>
+            <input
+              type="number"
+              class="form-control"
+              required
+              id="clientNumber"
+              name="client-number"
+              onchange="checkClientDetails();"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="MediaBudget">
+        <div class="text-center">
+          <h2 class="text-center section-heading">Media Budget</h2>
+        </div>
+        <h3 class="mx-4">Select Your Budget For Media Spend</h3>
+        <br />
+        <div class="row justify-content-around">
+          <div class="col-4 text-center">
+            <img
+              class="campaign-extras-img"
+              src="500.png"
+              alt="Lead Generation Img"
+            />
+            <br />
+            <input
+              type="radio"
+              value="500"
+              class="radio-btn"
+              name="budget"
+              id="budget500"
+              onchange="checkCustomRadio(); "
+              onclick="selectedBudget(true)"
+              required
+            />
+          </div>
+          <div class="col-4 text-center">
+            <img
+              class="campaign-extras-img"
+              src="1000.png"
+              alt="Lead Generation Img"
+            />
+            <br />
+            <input
+              type="radio"
+              value="1000"
+              name="budget"
+              id="budget1000"
+              onchange="checkCustomRadio();  "
+              onclick="selectedBudget(true)"
+            />
+          </div>
+          <div class="col-4 text-center">
+            <img
+              class="campaign-extras-img"
+              src="1500.png"
+              alt="Lead Generation Img"
+            />
+            <br />
+            <input
+              type="radio"
+              value="1500"
+              name="budget"
+              id="budget1500"
+              onchange="checkCustomRadio(); "
+              onclick="selectedBudget(true)"
+            />
+          </div>
+
+          <div class="text-center col-12 custom-budget">
+            <label for="customAmountInput" class="form-label"
+              >Enter Custom Budget($)
+            </label>
+            <br />
+            <input type="number" name="cbudget" id="customAmountInput" min="500"
+            onchange=" selectedCustomBudget()" //
+            onclick="selectedBudget(false);selectedCustomBudget();" />
+            <br />
+            <br />
+            <input
+              type="radio"
+              name="budget"
+              id="customAmountRadio"
+              onchange="checkCustomRadio();"
+              onclick="selectedBudget(false)"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- <section id="displayDetails">
+      <div class="container text-center">
+        <div class="row row-cols-2">
+          <div class="col">Campaign Type</div>
+          <div class="col" id="displayCampaignType"></div>
+          <div class="col">Business Name</div>
+          <div class="col">Column</div>
+          <div class="col">Campaign Start Date</div>
+          <div class="col">Column</div>
+          <div class="col">Campaign End Date</div>
+          <div class="col">Campaign Extras</div>
+          <div class="col">Campaign End Date</div>
         </div>
       </div>
-    </div>
+    </section> -->
+      <div
+        class="container progress-bar-section d-flex flex-column justify-content-center align-items-center"
+      >
+        <div id="progressBar">
+          <div class="progress-container">
+            <div class="progress-bar" id="progress"></div>
+            <div class="circle z-active">1</div>
+            <div class="circle">2</div>
+            <div class="circle">3</div>
+            <div class="circle">4</div>
+            <div class="circle">5</div>
+          </div>
+          <div class="text-center">
+            <button class="btn" type="button" id="prev" disabled>Prev</button>
+
+            <button class="btn" type="button" id="next" disabled>Next</button>
+            <button class="btn" type="submit" id="submitButton">
+              Proceed to Payment
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
@@ -405,23 +440,24 @@
   });
 
   let form = document.getElementById('CampaignForm');
-  let rerror = document.getElementById('formError');
-  let submitButton = document.getElementById('submitButton');
+  //  let rerror = document.getElementById('formError');
+  // let submitButton = document.getElementById('submitButton');
 
-  submitButton.addEventListener('click', function () {
-    let valid = true;
-    $('[required]').each(function () {
-      if ($(this).is(':invalid') || !$(this).val()) valid = false;
-    });
-    if (!valid) {
-      rerror.style.display = 'block';
-    } else {
-      rerror.style.display = 'none';
-    }
-  });
+  //submitButton.addEventListener('click', function () {
+  //  let valid = true;
+  //  $('[required]').each(function () {
+  //    if ($(this).is(':invalid') || !$(this).val()) valid = false;
+  //  });
+  //  if (!valid) {
+  //    rerror.style.display = 'block';
+  //  } else {
+  //    rerror.style.display = 'none';
+  //  }
+  //});
   form.addEventListener('submit', (e) => {
-    // e.preventDefault();
-    form.action = 'mail.php';
+    e.preventDefault();
+    // form.action = 'mail.php';
+    console.log('I WORKED');
     var productsAdded = [];
     var i = 3;
     var stripe = Stripe(
@@ -553,7 +589,7 @@
       });
   });
 </script>
-
+<!-- 
 <script>
   let subTotal = 0;
   let zbudget = document.getElementById('totalb');
@@ -602,4 +638,4 @@
     subTotal = subTotal + tempy;
     zbudget.innerHTML = subTotal;
   }
-</script>
+</script> -->

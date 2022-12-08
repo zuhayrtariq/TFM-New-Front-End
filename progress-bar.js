@@ -10,6 +10,7 @@ const CampaignDetails = document.getElementById('CampaignDetails');
 const CampaignExtras = document.getElementById('CampaignExtras');
 const ClientDetails = document.getElementById('ClientDetails');
 const MediaBudget = document.getElementById('MediaBudget');
+// const DisplayDetails = document.getElementById('displayDetails');
 
 // Campaign Details
 const businessName = document.getElementById('businessName');
@@ -23,6 +24,9 @@ const clientName = document.getElementById('clientName');
 const clientEmail = document.getElementById('clientEmail');
 const clientNumber = document.getElementById('clientNumber');
 const customAmount = document.getElementById('customAmountInput');
+
+//Buttons
+const submitButton = document.getElementById('submitButton');
 
 let campaigntype = false;
 let currentActive = 1;
@@ -60,30 +64,43 @@ function updateDisplay(currentActive) {
     CampaignExtras.style.display = 'none';
     ClientDetails.style.display = 'none';
     MediaBudget.style.display = 'none';
+
+    //DisplayDetails.style.display = 'none';
   } else if (currentActive === 2) {
     CampaignType.style.display = 'none';
     CampaignDetails.style.display = 'block';
     CampaignExtras.style.display = 'none';
     ClientDetails.style.display = 'none';
     MediaBudget.style.display = 'none';
+    //DisplayDetails.style.display = 'none';
   } else if (currentActive === 3) {
     CampaignType.style.display = 'none';
     CampaignDetails.style.display = 'none';
     CampaignExtras.style.display = 'block';
     ClientDetails.style.display = 'none';
     MediaBudget.style.display = 'none';
+    //DisplayDetails.style.display = 'none';
   } else if (currentActive === 4) {
     CampaignType.style.display = 'none';
     CampaignDetails.style.display = 'none';
     CampaignExtras.style.display = 'none';
     ClientDetails.style.display = 'block';
     MediaBudget.style.display = 'none';
+    nextBtn.style.display = 'inline-block';
+    submitButton.style.display = 'none';
+    //DisplayDetails.style.display = 'none';
   } else if (currentActive === 5) {
     CampaignType.style.display = 'none';
     CampaignDetails.style.display = 'none';
     CampaignExtras.style.display = 'none';
     ClientDetails.style.display = 'none';
     MediaBudget.style.display = 'block';
+    nextBtn.style.display = 'none';
+    submitButton.style.display = 'inline-block';
+
+    //DisplayDetails.style.display = 'none';
+  } else if (currentActive === 6) {
+    //DisplayDetails.style.display = 'none';
   }
 }
 function updateCircle() {
@@ -115,51 +132,55 @@ function selectedCampaignType() {
 function selectedBudget(a) {
   if (a === false) {
     budgetFlag = false;
-    nextBtn.disabled = true;
+    // nextBtn.disabled = true;
+    submitButton.disabled = true;
+
     console.log(budgetFlag);
   } else {
     budgetFlag = true;
-    nextBtn.disabled = false;
-
+    //nextBtn.disabled = false;
+    submitButton.disabled = false;
     console.log(budgetFlag);
   }
 }
 
 function checkCampaignDetails() {
-  // if (
-  //   businessName.value != '' &&
-  //   eventDetails.value != '' &&
-  //   keyMessage.value != '' &&
-  //   eventStart.value != '' &&
-  //   eventEnd.value != ''
-  // ) {
-  //   nextBtn.disabled = false;
-  // } else {
-  //   nextBtn.disabled = true;
-  // }
+  if (
+    businessName.value != '' &&
+    eventDetails.value != '' &&
+    keyMessage.value != '' &&
+    eventStart.value != '' &&
+    eventEnd.value != ''
+  ) {
+    nextBtn.disabled = false;
+  } else {
+    nextBtn.disabled = true;
+  }
 }
 
 function checkClientDetails() {
-  // if (
-  //   clientName.value != '' &&
-  //   clientEmail.value != '' &&
-  //   clientNumber.value != ''
-  // ) {
-  //   if (
-  //     /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(clientEmail.value)
-  //   ) {
-  //     nextBtn.disabled = false;
-  //   }
-  // } else {
-  //   nextBtn.disabled = true;
-  // }
+  if (
+    clientName.value != '' &&
+    clientEmail.value != '' &&
+    clientNumber.value != ''
+  ) {
+    if (
+      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(clientEmail.value)
+    ) {
+      nextBtn.disabled = false;
+    }
+  } else {
+    nextBtn.disabled = true;
+  }
 }
 
 function selectedCustomBudget() {
   if (customAmount.value >= 500) {
-    nextBtn.disabled = false;
+    //nextBtn.disabled = false;
+    submitButton.disabled = false;
   } else {
-    nextBtn.disabled = true;
+    //nextBtn.disabled = true;
+    submitButton.disabled = true;
     console.log(customAmount.value);
   }
 }

@@ -114,7 +114,13 @@ input[type='checkbox']:checked {
   /* display: inline; */
 }
 
-section:not(:first-child) {
+section {
+  display: none;
+}
+section#CampaignType {
+  display: block;
+}
+#submitButton {
   display: none;
 }
 .btn:disabled {
