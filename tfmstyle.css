@@ -1,11 +1,11 @@
 html,
 body {
   height: 100vh;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 section {
   min-height: 80vh;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 input[type='radio'],

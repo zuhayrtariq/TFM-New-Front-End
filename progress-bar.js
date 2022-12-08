@@ -117,33 +117,33 @@ function selectedBudget(a) {
 }
 
 function checkCampaignDetails() {
-  //   if (
-  //     businessName.value != '' &&
-  //     eventDetails.value != '' &&
-  //     keyMessage.value != '' &&
-  //     eventStart.value != '' &&
-  //     eventEnd.value != ''
-  //   ) {
-  //     nextBtn.disabled = false;
-  //   } else {
-  //     nextBtn.disabled = true;
-  //   }
+  if (
+    businessName.value != '' &&
+    eventDetails.value != '' &&
+    keyMessage.value != '' &&
+    eventStart.value != '' &&
+    eventEnd.value != ''
+  ) {
+    nextBtn.disabled = false;
+  } else {
+    nextBtn.disabled = true;
+  }
 }
 
 function checkClientDetails() {
-  //   if (
-  //     clientName.value != '' &&
-  //     clientEmail.value != '' &&
-  //     clientNumber.value != ''
-  //   ) {
-  //     if (
-  //       /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(clientEmail.value)
-  //     ) {
-  //       nextBtn.disabled = false;
-  //     }
-  //   } else {
-  //     nextBtn.disabled = true;
-  //   }
+  if (
+    clientName.value != '' &&
+    clientEmail.value != '' &&
+    clientNumber.value != ''
+  ) {
+    if (
+      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(clientEmail.value)
+    ) {
+      nextBtn.disabled = false;
+    }
+  } else {
+    nextBtn.disabled = true;
+  }
 }
 
 function selectedCustomBudget() {
