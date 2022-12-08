@@ -14,7 +14,10 @@
   </head>
   <body>
     <section id="CampaignType" class="container-fluid">
-      <h1 class="text-center section-heading">Campaign Type</h1>
+      <div class="text-center">
+        <h2 class="text-center section-heading">Campaign Type</h2>
+      </div>
+
       <h4>Choose Your Campaign Type</h4>
 
       <div class="row justify-content-around">
@@ -100,7 +103,7 @@
 
     <section id="CampaignDetails">
       <div class="text-center">
-        <h1 class="text-center section-heading">Campaign Details</h1>
+        <h2 class="text-center section-heading">Campaign Details</h2>
       </div>
 
       <h3 class="mx-4">Please Enter Campaign Details</h3>
@@ -167,7 +170,7 @@
     </section>
     <section id="CampaignExtras">
       <div class="text-center">
-        <h1 class="text-center section-heading">Campaign Extras</h1>
+        <h2 class="text-center section-heading">Campaign Extras</h2>
       </div>
       <h3 class="mx-4">Choose Any Campaign Extras</h3>
       <br />
@@ -238,7 +241,7 @@
 
     <section id="ClientDetails">
       <div class="text-center">
-        <h1 class="text-center section-heading">Client Details</h1>
+        <h2 class="text-center section-heading">Client Details</h2>
       </div>
       <h3 class="mx-4">Provide Your Contact & Invoicing Details:</h3>
       <br />
@@ -287,7 +290,7 @@
 
     <section id="MediaBudget">
       <div class="text-center">
-        <h1 class="text-center section-heading">Media Budget</h1>
+        <h2 class="text-center section-heading">Media Budget</h2>
       </div>
       <h3 class="mx-4">Select Your Budget For Media Spend</h3>
       <br />
@@ -350,7 +353,7 @@
           <br />
           <input type="number" name="cbudget" id="customAmountInput" min="500"
           onchange=" selectedCustomBudget()" //totalBudget3(this);
-          onclick="selectedBudget(false)" />
+          onclick="selectedBudget(false);selectedCustomBudget();" />
           <br />
           <br />
           <input

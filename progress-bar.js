@@ -22,10 +22,11 @@ const eventEnd = document.getElementById('eventEnd');
 const clientName = document.getElementById('clientName');
 const clientEmail = document.getElementById('clientEmail');
 const clientNumber = document.getElementById('clientNumber');
+const customAmount = document.getElementById('customAmountInput');
 
 let campaigntype = false;
 let currentActive = 1;
-
+let budgetFlag = false;
 nextBtn.addEventListener('click', () => {
   //   CampaignDetails.style.display = 'none';
   currentActive++;
@@ -36,7 +37,10 @@ nextBtn.addEventListener('click', () => {
   updateCircle();
   if (currentActive === 2) checkCampaignDetails();
   if (currentActive === 4) checkClientDetails();
-  if (currentActive === 5) selectedBudget(false);
+  if (currentActive === 5 && customAmount.value >= 500) {
+    selectedBudget(true);
+  } else if (currentActive === 5) selectedBudget(budgetFlag);
+
   updateDisplay(currentActive);
 });
 prevBtn.addEventListener('click', () => {
@@ -110,44 +114,48 @@ function selectedCampaignType() {
 }
 function selectedBudget(a) {
   if (a === false) {
+    budgetFlag = false;
     nextBtn.disabled = true;
+    console.log(budgetFlag);
   } else {
+    budgetFlag = true;
     nextBtn.disabled = false;
+
+    console.log(budgetFlag);
   }
 }
 
 function checkCampaignDetails() {
-  if (
-    businessName.value != '' &&
-    eventDetails.value != '' &&
-    keyMessage.value != '' &&
-    eventStart.value != '' &&
-    eventEnd.value != ''
-  ) {
-    nextBtn.disabled = false;
-  } else {
-    nextBtn.disabled = true;
-  }
+  // if (
+  //   businessName.value != '' &&
+  //   eventDetails.value != '' &&
+  //   keyMessage.value != '' &&
+  //   eventStart.value != '' &&
+  //   eventEnd.value != ''
+  // ) {
+  //   nextBtn.disabled = false;
+  // } else {
+  //   nextBtn.disabled = true;
+  // }
 }
 
 function checkClientDetails() {
-  if (
-    clientName.value != '' &&
-    clientEmail.value != '' &&
-    clientNumber.value != ''
-  ) {
-    if (
-      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(clientEmail.value)
-    ) {
-      nextBtn.disabled = false;
-    }
-  } else {
-    nextBtn.disabled = true;
-  }
+  // if (
+  //   clientName.value != '' &&
+  //   clientEmail.value != '' &&
+  //   clientNumber.value != ''
+  // ) {
+  //   if (
+  //     /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(clientEmail.value)
+  //   ) {
+  //     nextBtn.disabled = false;
+  //   }
+  // } else {
+  //   nextBtn.disabled = true;
+  // }
 }
 
 function selectedCustomBudget() {
-  const customAmount = document.getElementById('customAmountInput');
   if (customAmount.value >= 500) {
     nextBtn.disabled = false;
   } else {
