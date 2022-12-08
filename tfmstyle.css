@@ -1,0 +1,141 @@
+html,
+body {
+  height: 100vh;
+  /* overflow: hidden; */
+}
+section {
+  min-height: 80vh;
+  /* overflow: hidden; */
+}
+
+input[type='radio'],
+input[type='checkbox'] {
+  /* remove standard background appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* create custom radiobutton appearance */
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  padding: 4px;
+  /* background-color only for content */
+  background-clip: content-box;
+  border: 3px solid #2d327d;
+  background-color: none;
+  border-radius: 50%;
+}
+
+input[type='checkbox'] {
+  border-radius: 10%;
+}
+
+input[type='radio']:checked,
+input[type='checkbox']:checked {
+  background-color: #2d327d;
+}
+
+.campaign-type-img {
+  width: 200px;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  width: 350px;
+  max-width: 100%;
+  position: relative;
+  margin-bottom: 15px;
+}
+.progress-container::before {
+  content: '';
+  height: 4px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-45%);
+  background-color: gray;
+  width: 100%;
+  z-index: -1;
+}
+.progress-bar {
+  height: 4px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-45%);
+  background-color: rgb(0, 140, 255);
+  width: 0%;
+  z-index: -1;
+}
+
+.circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border: 3px solid gray;
+  border-radius: 50%;
+  color: gray;
+  font-weight: bold;
+}
+.circle.z-active {
+  border: 3px solid rgb(0, 140, 255) !important;
+  color: rgb(0, 140, 255) !important;
+}
+
+.btn {
+  background-color: rgb(0, 140, 255);
+  outline: none;
+  cursor: pointer;
+  border: none;
+  margin: 10px;
+  border-radius: 8px;
+  color: white;
+  padding: 10px 30px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 400;
+  /* display: inline; */
+}
+
+section:not(:first-child) {
+  display: none;
+}
+.btn:disabled {
+  background-color: gray;
+}
+.btn:hover {
+  text-decoration: none;
+  background-color: rgb(0, 140, 255);
+  color: white;
+}
+
+@media (max-width: 575.98px) {
+  .campaign-type-img {
+    width: 130px !important;
+    height: 130px !important;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* // `md` applies to small devices (landscape phones, less than 768px) */
+
+@media (max-width: 767.98px) {
+  .campaign-extras-img {
+    width: 120px !important;
+  }
+  html,
+  body {
+    width: auto !important;
+    overflow-x: hidden !important;
+  }
+}
+
+/* // `lg` applies to medium devices (tablets, less than 992px) */
+
+@media (max-width: 991.98px) {
+}
