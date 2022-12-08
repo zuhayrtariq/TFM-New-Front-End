@@ -45,7 +45,7 @@ prevBtn.addEventListener('click', () => {
     currentActive = 1;
   }
   updateCircle();
-
+  if (currentActive === 1) selectedCampaignType();
   updateDisplay(currentActive);
 });
 function updateDisplay(currentActive) {
