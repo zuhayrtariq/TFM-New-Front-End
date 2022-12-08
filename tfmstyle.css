@@ -5,9 +5,10 @@ body {
 }
 section {
   min-height: 80vh;
+  background-color: aliceblue;
   overflow: hidden;
 }
-.btn:active {
+.btn:pressed {
   color: inherit !important;
   background-color: inherit !important;
 }
@@ -41,7 +42,10 @@ input[type='checkbox']:checked {
 .campaign-type-img {
   width: 200px;
 }
-
+.progress-bar-section {
+  height: 20vh;
+  background-color: rgba(253, 245, 245, 0);
+}
 .progress-container {
   display: flex;
   justify-content: space-between;
